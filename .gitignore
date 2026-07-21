@@ -45,6 +45,7 @@ next-env.d.ts
 *.db-journal
 *.db-wal
 
-# uploads
-/public/uploads/*
-!/public/uploads/.gitkeep
+# uploads - keep category images
+/public/uploads/products/*
+/public/uploads/heroes/*
+!/public/uploads/categories
