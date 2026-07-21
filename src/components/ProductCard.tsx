@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { type Locale } from '@/i18n/config';
 import { useCart } from '@/contexts/CartContext';
+import { getMessages, getNestedValue } from '@/i18n/getMessages';
 
 interface Product {
   id: number;
@@ -15,8 +16,10 @@ interface Product {
   categorySlug?: string;
 }
 
-export default function ProductCard({ product, locale, t }: { product: Product; locale: Locale; t: (key: string) => string }) {
+export default function ProductCard({ product, locale }: { product: Product; locale: Locale }) {
   const { addItem } = useCart();
+  const messages = getMessages(locale);
+  const t = (key: string) => getNestedValue(messages, key);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -32,7 +35,6 @@ export default function ProductCard({ product, locale, t }: { product: Product; 
   return (
     <Link href={`/${locale}/product/${product.id}`} className="block group">
       <div className="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
-        {/* Image */}
         <div className="relative h-56 bg-gray-50 overflow-hidden">
           {product.imageUrl ? (
             <img
@@ -47,7 +49,6 @@ export default function ProductCard({ product, locale, t }: { product: Product; 
           )}
         </div>
 
-        {/* Info */}
         <div className="p-4">
           <h3 className="font-semibold text-sm mb-2 line-clamp-2 min-h-[2.5rem]" style={{ color: 'var(--color-text)' }}>
             {product.name}

@@ -2,6 +2,8 @@
 
 import { useCart } from '@/contexts/CartContext';
 import { useState } from 'react';
+import { type Locale } from '@/i18n/config';
+import { getMessages, getNestedValue } from '@/i18n/getMessages';
 
 interface Props {
   product: {
@@ -11,12 +13,14 @@ interface Props {
     price: number;
     imageUrl?: string;
   };
-  t: (key: string) => string;
+  locale: Locale;
 }
 
-export default function AddToCartButton({ product, t }: Props) {
+export default function AddToCartButton({ product, locale }: Props) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
+  const messages = getMessages(locale);
+  const t = (key: string) => getNestedValue(messages, key);
 
   const handleAdd = () => {
     addItem({

@@ -1,5 +1,4 @@
 import { locales, isRtl, type Locale } from '@/i18n/config';
-import { getMessages, getNestedValue } from '@/i18n/getMessages';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CartProvider } from '@/contexts/CartContext';
@@ -17,10 +16,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'ar';
-  const messages = getMessages(validLocale);
   const dir = isRtl(validLocale) ? 'rtl' : 'ltr';
-
-  const t = (key: string) => getNestedValue(messages, key);
 
   return (
     <html lang={validLocale} dir={dir}>
@@ -32,9 +28,9 @@ export default async function LocaleLayout({
       </head>
       <body style={{ fontFamily: "'Cairo', 'Segoe UI', sans-serif" }}>
         <CartProvider locale={validLocale}>
-          <Header locale={validLocale} t={t} />
+          <Header locale={validLocale} />
           <main className="min-h-screen">{children}</main>
-          <Footer locale={validLocale} t={t} />
+          <Footer locale={validLocale} />
         </CartProvider>
       </body>
     </html>

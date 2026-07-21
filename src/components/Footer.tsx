@@ -1,17 +1,21 @@
-import { type Locale } from '@/i18n/config';
+'use client';
 
-export default function Footer({ locale, t }: { locale: Locale; t: (key: string) => string }) {
+import { type Locale } from '@/i18n/config';
+import { getMessages, getNestedValue } from '@/i18n/getMessages';
+
+export default function Footer({ locale }: { locale: Locale }) {
+  const messages = getMessages(locale);
+  const t = (key: string) => getNestedValue(messages, key);
+
   return (
     <footer className="text-white py-8 mt-12" style={{ backgroundColor: 'var(--color-primary-dark)' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Store Info */}
           <div>
             <h3 className="text-xl font-bold mb-3">{t('store.name')}</h3>
             <p className="text-gray-300 text-sm">{t('store.tagline')}</p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-3">{t('nav.categories')}</h4>
             <div className="flex flex-wrap gap-2">
@@ -21,7 +25,6 @@ export default function Footer({ locale, t }: { locale: Locale; t: (key: string)
             </div>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-semibold mb-3">{t('footer.contact')}</h4>
             <p className="text-gray-300 text-sm">📱 +20 11 54705008</p>

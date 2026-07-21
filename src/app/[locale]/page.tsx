@@ -92,7 +92,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8" style={{ color: 'var(--color-primary)' }}>
             {t('home.newArrivals')}
           </h2>
-          <ProductCarousel products={productsWithPrice} locale={validLocale} t={t} />
+          <ProductCarousel products={productsWithPrice} locale={validLocale} />
         </section>
       )}
     </div>

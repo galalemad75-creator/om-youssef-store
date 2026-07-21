@@ -143,7 +143,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
               price,
               imageUrl: product.imageUrl as string | undefined,
             }}
-            t={t}
+            locale={validLocale}
           />
         </div>
       </div>

@@ -5,12 +5,15 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { locales, localeNames, type Locale } from '@/i18n/config';
+import { getMessages, getNestedValue } from '@/i18n/getMessages';
 
-export default function Header({ locale, t }: { locale: Locale; t: (key: string) => string }) {
+export default function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const { itemCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const messages = getMessages(locale);
+  const t = (key: string) => getNestedValue(messages, key);
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split('/');
@@ -22,14 +25,12 @@ export default function Header({ locale, t }: { locale: Locale; t: (key: string)
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-2">
             <span className="text-2xl font-bold" style={{ color: 'var(--color-primary)' }}>
               {t('store.name')}
             </span>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6">
             <Link href={`/${locale}`} className="text-gray-700 hover:text-[var(--color-primary)] font-medium">
               {t('nav.home')}
@@ -47,9 +48,7 @@ export default function Header({ locale, t }: { locale: Locale; t: (key: string)
             </Link>
           </nav>
 
-          {/* Language Selector + Mobile Menu */}
           <div className="flex items-center gap-3">
-            {/* Language Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -76,7 +75,6 @@ export default function Header({ locale, t }: { locale: Locale; t: (key: string)
               )}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -92,7 +90,6 @@ export default function Header({ locale, t }: { locale: Locale; t: (key: string)
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-gray-100">
             <Link href={`/${locale}`} className="block py-2 text-gray-700 hover:text-[var(--color-primary)]">
