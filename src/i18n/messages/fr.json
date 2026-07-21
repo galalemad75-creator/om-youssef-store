@@ -1,0 +1,70 @@
+{
+  "store": {
+    "name": "Om Youssef",
+    "tagline": "Meilleurs vêtements et articles ménagers à prix de gros"
+  },
+  "nav": {
+    "home": "Accueil",
+    "categories": "Catégories",
+    "cart": "Panier",
+    "admin": "Tableau de bord"
+  },
+  "home": {
+    "shopByCategory": "Acheter par catégorie",
+    "newArrivals": "Nouveautés",
+    "viewAll": "Voir tout",
+    "viewProducts": "Voir les produits"
+  },
+  "product": {
+    "addToCart": "Ajouter au panier",
+    "size": "Taille",
+    "material": "Matière",
+    "weight": "Poids recommandé",
+    "colors": "Couleurs",
+    "description": "Description",
+    "price": "Prix",
+    "currency": "EGP",
+    "pieces": "pcs",
+    "kg": "kg",
+    "inStock": "En stock",
+    "outOfStock": "Rupture de stock"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "checkout": "Passer la commande",
+    "remove": "Supprimer",
+    "quantity": "Quantité",
+    "continueShopping": "Continuer vos achats"
+  },
+  "checkout": {
+    "title": "Passer la commande",
+    "name": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "governorate": "Gouvernorat",
+    "address": "Adresse détaillée",
+    "submit": "Confirmer la commande",
+    "success": "Votre commande a été passée avec succès!",
+    "whatsappMessage": "Envoyer via WhatsApp",
+    "cod": "Paiement à la livraison",
+    "orderSummary": "Résumé de la commande"
+  },
+  "categories": {
+    "title": "Catégories",
+    "products": "Produits",
+    "noProducts": "Aucun produit dans cette catégorie pour le moment"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "contact": "Contactez-nous"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "back": "Retour",
+    "search": "Rechercher",
+    "language": "Langue",
+    "egp": "EGP"
+  }
+}

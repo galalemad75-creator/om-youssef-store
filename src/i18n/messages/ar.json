@@ -1,0 +1,70 @@
+{
+  "store": {
+    "name": "أم يوسف",
+    "tagline": "أفضل الملابس والمفروشات بأسعار الجملة"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "categories": "الأقسام",
+    "cart": "السلة",
+    "admin": "لوحة التحكم"
+  },
+  "home": {
+    "shopByCategory": "تسوّق حسب القسم",
+    "newArrivals": "الجديد لدينا",
+    "viewAll": "عرض الكل",
+    "viewProducts": "عرض المنتجات"
+  },
+  "product": {
+    "addToCart": "أضف للسلة",
+    "size": "المقاس",
+    "material": "الخامة",
+    "weight": "الوزن المناسب",
+    "colors": "الألوان",
+    "description": "الوصف",
+    "price": "السعر",
+    "currency": "جنيه",
+    "kg": "كجم",
+    "pieces": "قطعة",
+    "inStock": "متوفر",
+    "outOfStock": "غير متوفر"
+  },
+  "cart": {
+    "title": "سلة المشتريات",
+    "empty": "السلة فاضية",
+    "total": "الإجمالي",
+    "checkout": "إتمام الطلب",
+    "remove": "إزالة",
+    "quantity": "الكمية",
+    "continueShopping": "متابعة التسوق"
+  },
+  "checkout": {
+    "title": "إتمام الطلب",
+    "name": "الاسم بالكامل",
+    "phone": "رقم الموبايل",
+    "governorate": "المحافظة",
+    "address": "العنوان بالتفصيل",
+    "submit": "تأكيد الطلب",
+    "success": "تم تسجيل طلبك بنجاح!",
+    "whatsappMessage": "إرسال عبر واتساب",
+    "cod": "الدفع عند الاستلام",
+    "orderSummary": "ملخص الطلب"
+  },
+  "categories": {
+    "title": "الأقسام",
+    "products": "منتجات",
+    "noProducts": "مفيش منتجات في القسم ده لسه"
+  },
+  "footer": {
+    "rights": "جميع الحقوق محفوظة",
+    "contact": "تواصل معنا"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حصل خطأ",
+    "back": "رجوع",
+    "search": "بحث",
+    "language": "اللغة",
+    "egp": "ج.م"
+  }
+}

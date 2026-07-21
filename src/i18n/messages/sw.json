@@ -1,0 +1,70 @@
+{
+  "store": {
+    "name": "Om Youssef",
+    "tagline": "Nguo na vifaa vya nyumbani kwa bei ya jumla"
+  },
+  "nav": {
+    "home": "Nyumbani",
+    "categories": "Makundi",
+    "cart": "Kikapu",
+    "admin": "Dashibodi"
+  },
+  "home": {
+    "shopByCategory": "Nunua kwa Kundi",
+    "newArrivals": "Mpya",
+    "viewAll": "Ona Yote",
+    "viewProducts": "Ona Bidhaa"
+  },
+  "product": {
+    "addToCart": "Ongeza Kwenye Kikapu",
+    "size": "Ukubwa",
+    "material": "Nyenzo",
+    "weight": "Ufaa wa Uzito",
+    "colors": "Rangi",
+    "description": "Maelezo",
+    "price": "Bei",
+    "currency": "EGP",
+    "pieces": "vipande",
+    "kg": "kg",
+    "inStock": "Ipo",
+    "outOfStock": "Haipo"
+  },
+  "cart": {
+    "title": "Kikapu",
+    "empty": "Kikapu chako ni tupu",
+    "total": "Jumla",
+    "checkout": "Lipia",
+    "remove": "Ondoa",
+    "quantity": "Idadi",
+    "continueShopping": "Endelea Kununua"
+  },
+  "checkout": {
+    "title": "Lipia",
+    "name": "Jina Kamili",
+    "phone": "Nambari ya Simu",
+    "governorate": "Mkoa",
+    "address": "Anwani Kamili",
+    "submit": "Thibitisha Agizo",
+    "success": "Agizo lako limethibitishwa!",
+    "whatsappMessage": "Tuma kupitia WhatsApp",
+    "cod": "Lipia Ukipokea",
+    "orderSummary": "Muhtasari wa Agizo"
+  },
+  "categories": {
+    "title": "Makundi",
+    "products": "Bidhaa",
+    "noProducts": "Hakuna bidhaa katika kundi hili bado"
+  },
+  "footer": {
+    "rights": "Haki zote zimehifadhiwa",
+    "contact": "Wasiliana Nasi"
+  },
+  "common": {
+    "loading": "Inapakia...",
+    "error": "Kosa limetokea",
+    "back": "Rudi",
+    "search": "Tafuta",
+    "language": "Lugha",
+    "egp": "EGP"
+  }
+}

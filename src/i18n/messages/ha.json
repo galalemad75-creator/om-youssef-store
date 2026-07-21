@@ -1,0 +1,70 @@
+{
+  "store": {
+    "name": "Om Youssef",
+    "tagline": "Mafi kyawun tufafi da kayan gida a farashin gilashi"
+  },
+  "nav": {
+    "home": "Gida",
+    "categories": "Kundin",
+    "cart": "Kwando",
+    "admin": "Dashboard"
+  },
+  "home": {
+    "shopByCategory": "Sayi ta Kundin",
+    "newArrivals": "Sababbi",
+    "viewAll": "Duba Duka",
+    "viewProducts": "Duba Kayayyaki"
+  },
+  "product": {
+    "addToCart": "Saka a Kwando",
+    "size": "Girma",
+    "material": "Abu",
+    "weight": "Nauyi da ya dace",
+    "colors": "Launi",
+    "description": "Bayani",
+    "price": "Farashi",
+    "currency": "EGP",
+    "pieces": "yanki",
+    "kg": "kg",
+    "inStock": "Akwai",
+    "outOfStock": "Ba a kwai ba"
+  },
+  "cart": {
+    "title": "Kwando",
+    "empty": "Kwando naka babu komai",
+    "total": "Jimla",
+    "checkout": "Biya",
+    "remove": "Cire",
+    "quantity": "Adadi",
+    "continueShopping": "Ci gaba da Sayayya"
+  },
+  "checkout": {
+    "title": "Biya",
+    "name": "Cikakken Suna",
+    "phone": "Lambar Waya",
+    "governorate": "Jiha",
+    "address": "Cikakken Adireshi",
+    "submit": "Tabbatar da Oda",
+    "success": "An tabbatar da odar ku!",
+    "whatsappMessage": "Aika ta WhatsApp",
+    "cod": "Biya a Lokacin Karba",
+    "orderSummary": "Taƙaitaccen Oda"
+  },
+  "categories": {
+    "title": "Kundin",
+    "products": "Kayayyaki",
+    "noProducts": "Babu kayayyaki a wannan kundin har yanzu"
+  },
+  "footer": {
+    "rights": "Duka haƙƙoƙi an kiyaye su",
+    "contact": "Tuntuɓe Mu"
+  },
+  "common": {
+    "loading": "Ana lodi...",
+    "error": "Kuskure ya faru",
+    "back": "Koma",
+    "search": "Bincika",
+    "language": "Harshe",
+    "egp": "EGP"
+  }
+}

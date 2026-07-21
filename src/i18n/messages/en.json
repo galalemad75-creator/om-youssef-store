@@ -1,0 +1,70 @@
+{
+  "store": {
+    "name": "Om Youssef",
+    "tagline": "Best clothing & home goods at wholesale prices"
+  },
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "cart": "Cart",
+    "admin": "Dashboard"
+  },
+  "home": {
+    "shopByCategory": "Shop by Category",
+    "newArrivals": "New Arrivals",
+    "viewAll": "View All",
+    "viewProducts": "View Products"
+  },
+  "product": {
+    "addToCart": "Add to Cart",
+    "size": "Size",
+    "material": "Material",
+    "weight": "Suitable Weight",
+    "colors": "Colors",
+    "description": "Description",
+    "price": "Price",
+    "currency": "EGP",
+    "pieces": "pcs",
+    "kg": "kg",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "quantity": "Quantity",
+    "continueShopping": "Continue Shopping"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "governorate": "Governorate",
+    "address": "Detailed Address",
+    "submit": "Place Order",
+    "success": "Your order has been placed successfully!",
+    "whatsappMessage": "Send via WhatsApp",
+    "cod": "Cash on Delivery",
+    "orderSummary": "Order Summary"
+  },
+  "categories": {
+    "title": "Categories",
+    "products": "Products",
+    "noProducts": "No products in this category yet"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "contact": "Contact Us"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "search": "Search",
+    "language": "Language",
+    "egp": "EGP"
+  }
+}

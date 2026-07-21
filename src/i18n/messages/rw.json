@@ -1,0 +1,70 @@
+{
+  "store": {
+    "name": "Om Youssef",
+    "tagline": "Imyambaro n'ibikoresho by'imbere mu rugo by'igiciro cy'isoko"
+  },
+  "nav": {
+    "home": "Ahabanza",
+    "categories": "Ibyiciro",
+    "cart": "Agakete",
+    "admin": "Dashboard"
+  },
+  "home": {
+    "shopByCategory": "Gura ukurikije icyiciro",
+    "newArrivals": "Ibishya",
+    "viewAll": "Reba Byose",
+    "viewProducts": "Reba Ibicuruzwa"
+  },
+  "product": {
+    "addToCart": "Ongeraho mu gakete",
+    "size": "Ingano",
+    "material": "Ibikoresho",
+    "weight": "Uburemere bukwiriye",
+    "colors": "Amabara",
+    "description": "Ibisobanuro",
+    "price": "Igiciro",
+    "currency": "EGP",
+    "pieces": "igice",
+    "kg": "kg",
+    "inStock": "Biraboneka",
+    "outOfStock": "Ntibibonetse"
+  },
+  "cart": {
+    "title": "Agakete",
+    "empty": "Agakete kawe karimo ubusa",
+    "total": "Igiteranyo",
+    "checkout": "Kwishura",
+    "remove": "Kuvanaho",
+    "quantity": "Umubare",
+    "continueShopping": "Komeza ugure"
+  },
+  "checkout": {
+    "title": "Kwishura",
+    "name": "Amazina yose",
+    "phone": "Nimero ya telefone",
+    "governorate": "Intara",
+    "address": "Aderesi yose",
+    "submit": "Emeza itegeko",
+    "success": "Itegeko ryawe ryemejwe!",
+    "whatsappMessage": "Ohereza na WhatsApp",
+    "cod": "Wishura iyo wakiriye",
+    "orderSummary": "Incamake y'itegeko"
+  },
+  "categories": {
+    "title": "Ibyiciro",
+    "products": "Ibicuruzwa",
+    "noProducts": "Nta bicuruzwa muri iki cyiciro ubu"
+  },
+  "footer": {
+    "rights": "Uburenganzira bwose bwubahirizwa",
+    "contact": "Twandikire"
+  },
+  "common": {
+    "loading": "Birimo gutangira...",
+    "error": "Hari ikosa ryabaye",
+    "back": "Subira inyuma",
+    "search": "Shakisha",
+    "language": "Ururimi",
+    "egp": "EGP"
+  }
+}
