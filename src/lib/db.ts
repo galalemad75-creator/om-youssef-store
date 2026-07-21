@@ -109,7 +109,7 @@ function initializeDatabase(db: Database.Database) {
     { nameAr: 'عبايات', nameEn: 'Abayas', slug: 'abayas', banner: '/uploads/categories/abayas.png' },
     { nameAr: 'ملابس أطفال', nameEn: 'Kids Clothing', slug: 'kids', banner: '/uploads/categories/kids.png' },
     { nameAr: 'ملابس رجالي', nameEn: "Men's Clothing", slug: 'men', banner: '/uploads/categories/men.png' },
-    { nameAr: 'مايوهات حريمي', nameEn: "Women's Swimwear", slug: 'swimwear-women', banner: '' },
+    { nameAr: 'مايوهات حريمي', nameEn: "Women's Swimwear", slug: 'swimwear-women', banner: '/uploads/categories/swimwear-women.png' },
     { nameAr: 'مايوهات رجالي', nameEn: "Men's Swimwear", slug: 'swimwear-men', banner: '/uploads/categories/swimwear-men.png' },
     { nameAr: 'مفروشات', nameEn: 'Home Textiles', slug: 'home-textiles', banner: '/uploads/categories/home-textiles.png' },
     { nameAr: 'بديل السجاد', nameEn: 'Rug Alternative', slug: 'rug-alternative', banner: '/uploads/categories/rug-alternative.png' },
@@ -120,7 +120,7 @@ function initializeDatabase(db: Database.Database) {
     { nameAr: 'لبس مدرسي', nameEn: 'School Uniform', slug: 'school-uniform', banner: '/uploads/categories/school-uniform.png' },
     { nameAr: 'شنط سفر', nameEn: 'Travel Bags', slug: 'travel-bags', banner: '/uploads/categories/travel-bags.png' },
     { nameAr: 'بيجامات', nameEn: 'Pajamas', slug: 'pajamas', banner: '/uploads/categories/pajamas.png' },
-    { nameAr: 'أسدالات صلاة', nameEn: 'Prayer Garment', slug: 'isdal', banner: '' },
+    { nameAr: 'أسدالات صلاة', nameEn: 'Prayer Garment', slug: 'isdal', banner: '/uploads/categories/isdal.png' },
   ];
 
   const insertCat = db.prepare(
