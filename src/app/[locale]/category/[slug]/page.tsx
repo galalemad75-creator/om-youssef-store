@@ -1,4 +1,4 @@
-import getDb from '@/lib/db';
+import { getCategoryBySlug, getProducts, getSettings } from '@/lib/db';
 import { calculateSellingPrice, formatPrice } from '@/lib/pricing';
 import { getMessages, getNestedValue } from '@/i18n/getMessages';
 import { type Locale } from '@/i18n/config';
@@ -12,9 +12,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
   const t = (key: string) => getNestedValue(messages, key);
   const isArabic = validLocale === 'ar';
 
-  const db = getDb();
-
-  const category = db.prepare('SELECT * FROM Category WHERE slug = ?').get(slug) as Record<string, unknown> | undefined;
+  const category = await getCategoryBySlug(slug);
 
   if (!category) {
     return (
@@ -25,49 +23,40 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
     );
   }
 
-  const catName = (category[`name${validLocale.charAt(0).toUpperCase() + validLocale.slice(1)}`] as string) || (category.nameAr as string);
-  const bannerUrl = category.bannerUrl as string | null;
+  const catName = (category[`name_${validLocale}`] as string) || (category.name_ar as string);
+  const bannerUrl = category.banner_url as string | null;
 
-  const products = db.prepare(`
-    SELECT p.*, c.nameAr as categoryNameAr, c.slug as categorySlug
-    FROM Product p
-    LEFT JOIN Category c ON p.categoryId = c.id
-    WHERE p.categoryId = ? AND p.published = 1
-    ORDER BY p.createdAt DESC
-  `).all(category.id) as Array<Record<string, unknown>>;
+  const products = await getProducts(category.id as number);
+  const settings = await getSettings();
+  const surcharge = parseFloat(settings.non_arabic_surcharge || '500');
 
-  const getProductName = (product: Record<string, unknown>) => {
-    const nameKey = `name${validLocale.charAt(0).toUpperCase() + validLocale.slice(1)}`;
-    return (product[nameKey] as string) || (product.nameAr as string);
+  const getNameField = (row: Record<string, unknown>, prefix: string) => {
+    const key = `${prefix}_${validLocale}`;
+    return (row[key] as string) || (row[`${prefix}_ar`] as string) || '';
   };
 
-  const productsWithPrice = products.map(product => {
-    const p = product as Record<string, unknown>;
-    return {
-      id: p.id as number,
-      nameAr: p.nameAr as string,
-      name: getProductName(p),
-      price: calculateSellingPrice(p.dozenPrice as number, p.profitMargin as number, isArabic),
-      formattedPrice: formatPrice(
-        calculateSellingPrice(p.dozenPrice as number, p.profitMargin as number, isArabic),
-        validLocale
-      ),
-      imageUrl: p.imageUrl as string | undefined,
-      material: p.material as string | undefined,
-      categorySlug: p.categorySlug as string | undefined,
-    };
-  });
+  const productsWithPrice = products.map((product: Record<string, unknown>) => ({
+    id: product.id as number,
+    nameAr: product.name_ar as string,
+    name: getNameField(product, 'name'),
+    price: calculateSellingPrice(product.dozen_price as number, product.profit_margin as number, isArabic, surcharge),
+    formattedPrice: formatPrice(
+      calculateSellingPrice(product.dozen_price as number, product.profit_margin as number, isArabic, surcharge),
+      validLocale
+    ),
+    imageUrl: product.image_url as string | undefined,
+    material: product.material as string | undefined,
+    categorySlug: product.category_slug as string | undefined,
+  }));
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500">
         <Link href={`/${validLocale}`} className="hover:text-[var(--color-primary)]">{t('nav.home')}</Link>
         <span className="mx-2">/</span>
         <span className="text-[var(--color-primary)]">{catName}</span>
       </nav>
 
-      {/* Category Header */}
       <div className="mb-8">
         {bannerUrl && (
           <div className="relative h-48 md:h-64 rounded-xl overflow-hidden mb-6">
@@ -83,11 +72,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
         <p className="text-gray-500">{productsWithPrice.length} {t('categories.products')}</p>
       </div>
 
-      {/* Products Grid */}
       {productsWithPrice.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {productsWithPrice.map((product) => (
-            <ProductCard key={product.id} product={product} locale={validLocale} t={t} />
+            <ProductCard key={product.id} product={product} locale={validLocale} />
           ))}
         </div>
       ) : (

@@ -1,13 +1,12 @@
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
-import { getSettings } from './pricing';
+import { getSettings } from './db';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'om-youssef-secret-key-2024';
 
 export async function verifyAdmin(password: string): Promise<boolean> {
-  const settings = getSettings();
-  return password === settings.adminPassword;
+  const settings = await getSettings();
+  return password === settings.admin_password;
 }
 
 export function createToken(): string {
