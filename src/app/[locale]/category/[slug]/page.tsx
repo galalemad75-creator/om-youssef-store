@@ -26,6 +26,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
   }
 
   const catName = (category[`name${validLocale.charAt(0).toUpperCase() + validLocale.slice(1)}`] as string) || (category.nameAr as string);
+  const bannerUrl = category.bannerUrl as string | null;
 
   const products = db.prepare(`
     SELECT p.*, c.nameAr as categoryNameAr, c.slug as categorySlug
@@ -61,15 +62,15 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
 
       {/* Category Header */}
       <div className="mb-8">
-        {category.bannerUrl && (
+        {bannerUrl && (
           <div className="relative h-48 md:h-64 rounded-xl overflow-hidden mb-6">
-            <img src={category.bannerUrl as string} alt={catName} className="w-full h-full object-contain bg-gray-50" />
+            <img src={bannerUrl} alt={catName} className="w-full h-full object-contain bg-gray-50" />
             <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
               <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">{catName}</h1>
             </div>
           </div>
         )}
-        {!category.bannerUrl && (
+        {!bannerUrl && (
           <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--color-primary)' }}>{catName}</h1>
         )}
         <p className="text-gray-500">{productsWithPrice.length} {t('categories.products')}</p>
