@@ -41,15 +41,22 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
     return (product[nameKey] as string) || (product.nameAr as string);
   };
 
-  const productsWithPrice = products.map(product => ({
-    ...product,
-    name: getProductName(product),
-    price: calculateSellingPrice(product.dozenPrice as number, product.profitMargin as number, isArabic),
-    formattedPrice: formatPrice(
-      calculateSellingPrice(product.dozenPrice as number, product.profitMargin as number, isArabic),
-      validLocale
-    ),
-  }));
+  const productsWithPrice = products.map(product => {
+    const p = product as Record<string, unknown>;
+    return {
+      id: p.id as number,
+      nameAr: p.nameAr as string,
+      name: getProductName(p),
+      price: calculateSellingPrice(p.dozenPrice as number, p.profitMargin as number, isArabic),
+      formattedPrice: formatPrice(
+        calculateSellingPrice(p.dozenPrice as number, p.profitMargin as number, isArabic),
+        validLocale
+      ),
+      imageUrl: p.imageUrl as string | undefined,
+      material: p.material as string | undefined,
+      categorySlug: p.categorySlug as string | undefined,
+    };
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -80,7 +87,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
       {productsWithPrice.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {productsWithPrice.map((product) => (
-            <ProductCard key={product.id as number} product={product as unknown as Parameters<typeof ProductCard>[0]['product']} locale={validLocale} t={t} />
+            <ProductCard key={product.id} product={product} locale={validLocale} t={t} />
           ))}
         </div>
       ) : (
