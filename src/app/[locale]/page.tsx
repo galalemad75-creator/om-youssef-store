@@ -45,20 +45,33 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   };
 
   // Calculate prices
-  const productsWithPrice = products.map(product => ({
-    ...product,
-    name: getProductName(product),
-    price: calculateSellingPrice(product.dozenPrice as number, product.profitMargin as number, isArabic),
-    formattedPrice: formatPrice(
-      calculateSellingPrice(product.dozenPrice as number, product.profitMargin as number, isArabic),
-      validLocale
-    ),
-  }));
+  const productsWithPrice = products.map(product => {
+    const p = product as Record<string, unknown>;
+    return {
+      id: p.id as number,
+      nameAr: p.nameAr as string,
+      name: getProductName(p),
+      price: calculateSellingPrice(p.dozenPrice as number, p.profitMargin as number, isArabic),
+      formattedPrice: formatPrice(
+        calculateSellingPrice(p.dozenPrice as number, p.profitMargin as number, isArabic),
+        validLocale
+      ),
+      imageUrl: p.imageUrl as string | undefined,
+      material: p.material as string | undefined,
+      categorySlug: p.categorySlug as string | undefined,
+    };
+  });
 
-  const categoriesWithNames = categories.map(cat => ({
-    ...cat,
-    name: (cat[`name${validLocale.charAt(0).toUpperCase() + validLocale.slice(1)}`] as string) || (cat.nameAr as string),
-  }));
+  const categoriesWithNames = categories.map(cat => {
+    const c = cat as Record<string, unknown>;
+    return {
+      id: c.id as number,
+      name: (c[`name${validLocale.charAt(0).toUpperCase() + validLocale.slice(1)}`] as string) || (c.nameAr as string),
+      slug: c.slug as string,
+      bannerUrl: c.bannerUrl as string | undefined,
+      productCount: c.productCount as number,
+    };
+  });
 
   return (
     <div>
